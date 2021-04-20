@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <%apiData.forEach(data=>{%>
+        <section>
+        <p><%=data.character%></p>
+        <p><%=data.quote%></p>
+        <img src="<%=data.image%>" alt="" height="300px" width="150px">
+    </section>
+    <form action="/favorite-quotes" method="POST">
+    <input type="hidden" name="character" value="<%=data.character%>">
+    <input type="hidden" name="quote" value="<%=data.quote%>">
+    <input type="hidden" name="image" value="<%=data.image%>">
+    <input type="hidden" name="characterdirection" value="<%=data.characterdirection%>">
+    <input type="submit" value="save">
+</form>
+
+   <% })%>
+    
+</body>
+</html>
