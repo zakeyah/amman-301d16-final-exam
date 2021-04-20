@@ -1,6 +1,11 @@
 body{
-    background-color: aquamarine;
+    background-color:#62C8E4;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    color: #fefb1e;
+    font-family: sans-serif;
+}
+nav{
+    background-color: #16a085;
 }

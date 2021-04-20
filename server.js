@@ -40,8 +40,8 @@ app.get('/',renderHome)
 app.post('/favorite-quotes',handelSave)
 app.get('/saved',renderSaved)
 app.get('/favorite-quotes/:quote_id',renderDetails)
-app.delete('/favorite-quotes/:quote_id',handelDelete)
 app.put('/favorite-quotes/:quote_id',handelUpdate)
+app.delete('/favorite-quotes/:quote_id',handelDelete)
 
 
 
@@ -50,8 +50,9 @@ app.put('/favorite-quotes/:quote_id',handelUpdate)
 // -- WRITE YOUR CALLBACK FUNCTIONS FOR THE ROUTES HERE --
 function handelUpdate(req,res){
     const id= req.params.quote_id
-    const sql= 'UPDATE simpson SET character=$1, WHERE id=$2'
-    client.query(sql,[id])
+    const character= req.body.character
+    const sql= 'UPDATE simpson SET character=$1 WHERE id=$2'
+    client.query(sql,[character,id])
     .then(()=>{
         res.redirect(`/favorite-quotes/${id}`)
     })

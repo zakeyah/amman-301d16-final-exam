@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <nav>
+        <img src="/img/the_simpsons.png" alt="" width="200px" height="100px">
+    </nav>
     <%datbaseData.forEach(data=>{%>
         <section>
         <p><%=data.character%></p>
@@ -17,7 +20,7 @@
     <form action="/favorite-quotes/<%=data.id%>?_method=delete" method="POST">
   <button>delete</button>
     </form>
-    <form action="/favorite-quotes/<%=data.id%>?_method=put" method="POST">
+    <form action="/favorite-quotes/<%=data.id%>?_method=PUT" method="POST">
         <input type="text" name="character" value="<%=data.character%>">
         <button>update</button>
     </form>
